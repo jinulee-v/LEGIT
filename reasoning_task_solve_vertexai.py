@@ -20,22 +20,20 @@ vertexai_generation_config = {
 
 # Initialize Vertex AI
 # models: gemini-2.0-flash-001, gemini-2.5-flash-001
-MODEL_NAME = os.environ.get("MODEL_NAME", "gemini-2.5-flash-001")
 PROJECT_ID=os.environ["PROJECT_ID"] # mandatory
 REGION=os.environ.get("REGION", "us-west4") # default to us-west4
 print(f"Initializing Vertex AI... PROJECT_ID: {PROJECT_ID}, REGION: {REGION}")
 vertexai.init(project=PROJECT_ID, location=REGION)
-model = GenerativeModel(MODEL_NAME)
 print("Vertex AI initialization complete!")
     
 api_cost = 0
 default_generation_config = {
-    "max_output_tokens": 50000,
+    "max_output_tokens": 500,
     "temperature": 1,
     "top_p": 0.95,
 }
 SYSTEM_PROMPT = "당신은 한국의 법률 전문가입니다. 주어진 사안과 청구취지를 잘 읽고 판결의 결과를 관련 법령/대법원 판례가 잘 드러나도록, 가능한 주장/항변/재항변 등을 폭넓게 검토한 뒤 판결의 결과를 예측하세요."
-async def generate(prompt: str|list, response_schema=None):
+async def generate(model: GenerativeModel, prompt: str|list, response_schema=None):
     response = await model.generate_content_async(
         contents=prompt,
         generation_config=default_generation_config.copy().update({
@@ -55,9 +53,10 @@ async def generate(prompt: str|list, response_schema=None):
         return ""
 
 
-async def main():
+async def main(args):
     with open("data/reasoning_tasks_test.jsonl", "r", encoding="utf-8") as f:
         reasoning_tasks = [json.loads(line) for line in f.readlines()]
+    model = GenerativeModel(args.model)
     
     results = []
     for task in reasoning_tasks:
@@ -66,7 +65,7 @@ async def main():
         
         # Convert legal issue to reasoning task
         prompt = SYSTEM_PROMPT + "\n\n" + task["question"]
-        response = await generate(prompt)
+        response = await generate(model, prompt)
 
         # print(response); exit()
         results.append({
@@ -80,6 +79,11 @@ async def main():
                 f.write(json.dumps(result, ensure_ascii=False) + "\n")
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    import argparse
+    parser = argparse.ArgumentParser(description="Evaluate reasoning tasks using Vertex AI.")
+    parser.add_argument("--model", type=str, default="gemini-2.0-flash", help="Model name to use for evaluation.")
+    args = parser.parse_args()
+
+    asyncio.run(main(args))
     print(f"API cost: ${api_cost:.6f}")
     print("Processing complete!")

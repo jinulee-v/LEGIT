@@ -10,7 +10,6 @@ load_dotenv()
 
 # Initialize OpenAI SDK
 # models: gpt-4o-mini, gpt-4.1
-MODEL_NAME = os.environ.get("OPENAI_MODEL_NAME", "gpt-4.1")
 aclient = AsyncOpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 api_cost = 0
@@ -20,7 +19,7 @@ default_generation_config = {
     "top_p": 0.95,
 }
 SYSTEM_PROMPT = "당신은 한국의 법률 전문가입니다. 주어진 사안과 청구취지를 잘 읽고 판결의 결과를 관련 법령/대법원 판례가 잘 드러나도록, 가능한 주장/항변/재항변 등을 폭넓게 검토한 뒤 판결의 결과를 예측하세요."
-async def generate(prompt: str | list, response_schema=None):
+async def generate(model: str, prompt: str | list, response_schema=None):
     global api_cost
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
     if isinstance(prompt, list):
@@ -28,7 +27,7 @@ async def generate(prompt: str | list, response_schema=None):
     else:
         messages.append({"role": "user", "content": prompt})
 
-    response = await aclient.chat.completions.create(model=MODEL_NAME,
+    response = await aclient.chat.completions.create(model=model,
     messages=messages,
     # max_tokens=default_generation_config["max_output_tokens"],
     # temperature=default_generation_config["temperature"],
@@ -48,18 +47,20 @@ async def generate(prompt: str | list, response_schema=None):
         return ""
 
 
-async def main():
+async def main(args):
     with open("data/reasoning_tasks_test.jsonl", "r", encoding="utf-8") as f:
         reasoning_tasks = [json.loads(line) for line in f.readlines()]
+    
+    model_name = args.model
+    aclient = AsyncOpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
     results = []
     for task in reasoning_tasks:
         task_id = task["doc_id"]
         print(f"Processing task {task_id}...")
-
         # Convert legal issue to reasoning task
         prompt = SYSTEM_PROMPT + "\n\n" + task["question"]
-        response = await generate(prompt)
+        response = await generate(model_name, prompt)
 
         # print(response); exit()
         results.append({
@@ -68,11 +69,16 @@ async def main():
         })
 
         # Save updated results
-        with open(f"results/reasoning_tasks_{MODEL_NAME}.jsonl", "w", encoding="utf-8") as f:
+        with open(f"results/reasoning_tasks_{model_name}.jsonl", "w", encoding="utf-8") as f:
             for result in results:
                 f.write(json.dumps(result, ensure_ascii=False) + "\n")
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    import argparse
+    parser = argparse.ArgumentParser(description="Evaluate reasoning tasks using OpenAI API.")
+    parser.add_argument("--model", type=str, default="gpt-4.1", help="Model name to use for evaluation.")
+    args = parser.parse_args()
+
+    asyncio.run(main(args))
     print(f"API cost: ${api_cost:.6f}")
     print("Processing complete!")
