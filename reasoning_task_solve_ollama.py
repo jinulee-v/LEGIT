@@ -10,7 +10,7 @@ load_dotenv()
 SYSTEM_PROMPT = "당신은 한국의 법률 전문가입니다. 주어진 사안과 청구취지를 잘 읽고 판결의 결과를 관련 법령/대법원 판례가 잘 드러나도록, 가능한 주장/항변/재항변 등을 폭넓게 검토한 뒤 판결의 결과를 예측하세요."
 OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434/api/generate")
 
-async def generate(model: str, prompt: str | list, response_schema=None):
+def generate(model: str, prompt: str | list, response_schema=None):
     if isinstance(prompt, list):
         user_content = "\n".join([msg["content"] for msg in prompt if msg["role"] == "user"])
     else:
@@ -24,13 +24,13 @@ async def generate(model: str, prompt: str | list, response_schema=None):
         "stream": False,
     }
 
-    async with httpx.AsyncClient() as client:
-        response = await client.post(OLLAMA_URL, json=payload)
+    with httpx.Client() as client:
+        response = client.post(OLLAMA_URL, json=payload, timeout=300)
         response.raise_for_status()
         data = response.json()
         return data.get("response", "")
 
-async def main(args):
+def main(args):
     with open("data/reasoning_tasks_test.jsonl", "r", encoding="utf-8") as f:
         reasoning_tasks = [json.loads(line) for line in f.readlines()]
     
@@ -41,7 +41,7 @@ async def main(args):
         task_id = task["doc_id"]
         print(f"Processing task {task_id}...")
         prompt = task["question"]
-        response = await generate(model_name, prompt)
+        response = generate(model_name, prompt)
 
         results.append({
             "doc_id": task_id,
@@ -59,5 +59,6 @@ if __name__ == "__main__":
     parser.add_argument("--model", type=str, default="exaone3.5:7.8b", help="Model name to use for evaluation.")
     args = parser.parse_args()
 
-    asyncio.run(main(args))
+    # asyncio.run(main(args))
+    main(args)
     print("Processing complete!")
