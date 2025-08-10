@@ -117,5 +117,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     asyncio.run(main(args))
-    print(f"API cost: ${api_cost:.6f}")
+    # print(f"API cost: ${api_cost:.6f}")
     print("Processing complete!")
