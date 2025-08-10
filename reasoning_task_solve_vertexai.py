@@ -21,14 +21,14 @@ vertexai_generation_config = {
 # Initialize Vertex AI
 # models: gemini-2.0-flash-001, gemini-2.5-flash-001
 PROJECT_ID=os.environ["PROJECT_ID"] # mandatory
-REGION=os.environ.get("REGION", "us-west4") # default to us-west4
+REGION=os.environ.get("REGION", "us-central1") # default to us-west4
 print(f"Initializing Vertex AI... PROJECT_ID: {PROJECT_ID}, REGION: {REGION}")
 vertexai.init(project=PROJECT_ID, location=REGION)
 print("Vertex AI initialization complete!")
     
 api_cost = 0
 default_generation_config = {
-    "max_output_tokens": 500,
+    "max_output_tokens": 16384,
     "temperature": 1,
     "top_p": 0.95,
 }
@@ -49,13 +49,26 @@ async def generate(model: GenerativeModel, prompt: str|list, response_schema=Non
             return response.text.replace("```json", "").replace("```", "").strip()
         else:
             return response.text
-    except:
+    except Exception as e:
+        print(f"Error processing response: {e}")
         return ""
 
 
 async def main(args):
     with open("data/reasoning_tasks_test.jsonl", "r", encoding="utf-8") as f:
         reasoning_tasks = [json.loads(line) for line in f.readlines()]
+    if args.resume:
+        # Load existing results if resuming
+        try:
+            with open(f"results/reasoning_tasks_{args.model}.jsonl", "r", encoding="utf-8") as f:
+                results = [json.loads(line) for line in f.readlines()]
+                # Keep track of completed tasks
+                completed_tasks = {result["doc_id"] for result in results}
+                print("Resuming from previous results...")
+                print(f"Found {len(completed_tasks)} completed tasks.")
+                reasoning_tasks = [task for task in reasoning_tasks if task["doc_id"] not in completed_tasks]
+        except FileNotFoundError:
+            results = []
     model = GenerativeModel(args.model)
     
     results = []
@@ -74,7 +87,7 @@ async def main(args):
         })
         
         # Save updated results
-        with open("results/reasoning_tasks_gemini2.5.jsonl", "w", encoding="utf-8") as f:
+        with open(f"results/reasoning_tasks_{args.model}.jsonl", "w", encoding="utf-8") as f:
             for result in results:
                 f.write(json.dumps(result, ensure_ascii=False) + "\n")
 
@@ -82,6 +95,7 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Evaluate reasoning tasks using Vertex AI.")
     parser.add_argument("--model", type=str, default="gemini-2.0-flash", help="Model name to use for evaluation.")
+    parser.add_argument("--resume", action="store_true", help="Resume processing")
     args = parser.parse_args()
 
     asyncio.run(main(args))

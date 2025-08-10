@@ -1,9 +1,8 @@
-import vertexai
-from vertexai.preview.generative_models import GenerativeModel, Part
-import vertexai.preview.generative_models as generative_models
-from pydantic import BaseModel
 
-import sacrebleu
+from utils.router import get_model
+from utils.prompts import prompts
+
+from pydantic import BaseModel
 
 import os
 from tqdm import tqdm
@@ -18,55 +17,9 @@ class Evaluation(BaseModel):
     contains_issue: bool
     correct_conclusion: bool
 
-vertexai_generation_config = {
-    "max_output_tokens": None,
-    "temperature": 0.0
-}
-
-# Load prompts
-prompts = {x: None for x in ["evaluate_issue_in_response"]}
-for prompt in prompts.keys():
-    with open(f"prompts/{prompt}.txt", "r", encoding="utf-8") as f:
-        prompts[prompt] = f.read()
-
-# Gemini setup
-
-# Initialize Vertex AI
-PROJECT_ID=os.environ["PROJECT_ID"] # mandatory
-REGION=os.environ.get("REGION", "us-west4") # default to us-west4
-print(f"Initializing Vertex AI... PROJECT_ID: {PROJECT_ID}, REGION: {REGION}")
-vertexai.init(project=PROJECT_ID, location=REGION)
-print("Vertex AI initialization complete!")
-    
-api_cost = 0
-default_generation_config = {
-    "max_output_tokens": 50000,
-    "temperature": 0
-}
-
-async def generate(model: GenerativeModel, prompt: str|list, response_schema=None):
-    response = await model.generate_content_async(
-        contents=prompt,
-        generation_config=default_generation_config.copy().update({
-            "response_mime_type": "application/json",
-            "response_schema": response_schema,
-        }) if (response_schema is not None) else default_generation_config
-    )
-    global api_cost
-    api_cost += response.usage_metadata.prompt_token_count * 0.15/1000000
-    api_cost += response.usage_metadata.candidates_token_count * 0.6/1000000
-    try:
-        if response_schema is not None:
-            return response.text.replace("```json", "").replace("```", "").strip()
-        else:
-            return response.text
-    except:
-        return ""
-
-
 async def main(args):
     path = args.response_path
-    model = GenerativeModel(args.model)
+    model, generate = get_model(args.package, args.model)
 
     reasoning_tasks = {} # "id" -> object
     with open("data/reasoning_tasks_test.jsonl", "r", encoding="utf-8") as f:
@@ -159,6 +112,7 @@ async def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluate reasoning tasks using Vertex AI.")
     parser.add_argument("--response_path", type=str, required=True, help="Path to the JSONL file containing LLM responses.")
+    parser.add_argument("--package", type=str, required=True, help="Package for LLM generation.")
     parser.add_argument("--model", type=str, default="gemini-2.0-flash-001", help="Model name to use for evaluation.")
     args = parser.parse_args()
 

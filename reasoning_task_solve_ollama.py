@@ -10,7 +10,7 @@ load_dotenv()
 SYSTEM_PROMPT = "당신은 한국의 법률 전문가입니다. 주어진 사안과 청구취지를 잘 읽고 판결의 결과를 관련 법령/대법원 판례가 잘 드러나도록, 가능한 주장/항변/재항변 등을 폭넓게 검토한 뒤 판결의 결과를 예측하세요."
 OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434/api/generate")
 
-def generate(model: str, prompt: str | list, response_schema=None):
+def generate(model: str, prompt: str | list, response_schema=None, ollama_url=OLLAMA_URL):
     if isinstance(prompt, list):
         user_content = "\n".join([msg["content"] for msg in prompt if msg["role"] == "user"])
     else:
@@ -25,7 +25,7 @@ def generate(model: str, prompt: str | list, response_schema=None):
     }
 
     with httpx.Client() as client:
-        response = client.post(OLLAMA_URL, json=payload, timeout=300)
+        response = client.post(ollama_url, json=payload, timeout=300)
         response.raise_for_status()
         data = response.json()
         return data.get("response", "")
