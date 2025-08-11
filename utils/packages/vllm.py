@@ -3,7 +3,8 @@ from tqdm import tqdm
 import json
 from dotenv import load_dotenv
 import asyncio
-from vllm import LLM, SamplingParams, GuidedDecodingParams
+from vllm import LLM, SamplingParams
+from vllm.sampling_params import GuidedDecodingParams
 
 load_dotenv()
 
