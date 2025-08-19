@@ -24,10 +24,12 @@ def get_model(package: str, model_name: str) -> Tuple[Any, Callable]:
 
     if package == "vllm":
         # assert model_name in ["qwen2.5-72b", "qwen2.5-14b", "qwen2.5-7b"]
-        from vllm import LLM
+        from vllm.v1.engine.async_llm import AsyncLLM
+        from vllm.engine.arg_utils import AsyncEngineArgs
         from utils.packages.vllm import generate
         
-        llm = LLM(model=model_name, tensor_parallel_size=2, gpu_memory_utilization=0.5)
+        args = AsyncEngineArgs(model=model_name, tensor_parallel_size=2, gpu_memory_utilization=0.5)
+        llm = AsyncLLM.from_engine_args(args)
         return llm, generate
 
     if package == "openai":

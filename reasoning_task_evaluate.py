@@ -47,13 +47,17 @@ async def main(args):
         issue_results = {}
         for issue in reasoning_task["issues"]:
             # Check if the response contains the issue
-            evaluate_raw = await generate(model, prompt=prompts["evaluate_issue_in_response"].format(
-                response=response,
-                summary=issue["summary"],
-                claims="\n".join([f"{claim['claimer']}: {claim['content']}" for claim in issue["claim"]]),
-                conclusion=issue["conclusion"],
-            ), response_schema=Evaluation)
-            evaluate_raw = evaluate_raw.replace("<OUTPUT>", "").replace("</OUTPUT>", "").strip()
+            try:
+                evaluate_raw = await generate(model, prompt=prompts["evaluate_issue_in_response"].format(
+                    response=response,
+                    summary=issue["summary"],
+                    claims="\n".join([f"{claim['claimer']}: {claim['content']}" for claim in issue["claim"]]),
+                    conclusion=issue["conclusion"],
+                ), system_prompt="", response_schema=Evaluation)
+                evaluate_raw = evaluate_raw.replace("<OUTPUT>", "").replace("</OUTPUT>", "").strip()
+            except ValueError:
+                print("Error (length?)")
+                continue
             # print("----------------------------")
 
             # print(response)
@@ -104,7 +108,8 @@ async def main(args):
         result["evaluator_model"] = args.model
         result["evaluation_result"] = issue_results
         result["score"] = score
-        with open(path.replace(".jsonl", f"_evaluator_{args.model}.jsonl"), "w", encoding="utf-8") as f:
+        model_alias = args.model.split("/")[-1]
+        with open(path.replace(".jsonl", f"_evaluator_{model_alias}.jsonl"), "w", encoding="utf-8") as f:
             for result in results:
                 if "evaluation_result" in result:
                     f.write(json.dumps(result, ensure_ascii=False) + "\n")

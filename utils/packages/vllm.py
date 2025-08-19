@@ -3,7 +3,8 @@ from tqdm import tqdm
 import json
 from dotenv import load_dotenv
 import asyncio
-from vllm import LLM, SamplingParams
+from vllm import SamplingParams
+from vllm.v1.engine.async_llm import AsyncLLM
 from vllm.sampling_params import GuidedDecodingParams
 
 load_dotenv()
@@ -14,9 +15,11 @@ default_generation_config = {
     "max_output_tokens": 16384,  # Adjusted for vLLM
 }
 VLLM_URL = os.environ.get("VLLM_URL", "http://localhost:11434/api/generate")
+request_id_cnt = 0
+lock = asyncio.Lock()
 
-def generate(model: LLM, prompt: str, system_prompt: str, response_schema=None, vllm_url=VLLM_URL):
-    prompts = [system_prompt + "\n\n" + prompt]
+async def generate(model: AsyncLLM, prompt: str, system_prompt: str, response_schema=None, vllm_url=VLLM_URL):
+    prompt = system_prompt + "\n\n" + prompt
     if response_schema is not None:
         guided_decoding_params = GuidedDecodingParams(
             json=response_schema.model_json_schema()
@@ -29,5 +32,12 @@ def generate(model: LLM, prompt: str, system_prompt: str, response_schema=None, 
         max_tokens=default_generation_config["max_output_tokens"],
         guided_decoding=guided_decoding_params,
     )
-    outputs = model.generate(prompts, sampling_params)
-    return [output.outputs[0].text.strip() for output in outputs]
+    async with lock:
+        global request_id_cnt
+        request_id = f"vllm_async_request_{request_id_cnt}"
+        request_id_cnt += 1
+    results_generator = model.generate(prompt, sampling_params, request_id=request_id)
+    output = None
+    async for request_output in results_generator:
+        output = request_output
+    return output.outputs[0].text.strip()
