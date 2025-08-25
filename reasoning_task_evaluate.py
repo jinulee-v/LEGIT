@@ -20,6 +20,7 @@ class Evaluation(BaseModel):
 async def main(args):
     path = args.response_path
     model, generate = get_model(args.package, args.model)
+    print("Reasoning task evaluiate script", args.response_path, args.model)
 
     reasoning_tasks = {} # "id" -> object
     with open("data/reasoning_tasks_test.jsonl", "r", encoding="utf-8") as f:
@@ -54,7 +55,6 @@ async def main(args):
                     claims="\n".join([f"{claim['claimer']}: {claim['content']}" for claim in issue["claim"]]),
                     conclusion=issue["conclusion"],
                 ), system_prompt="", response_schema=Evaluation)
-                evaluate_raw = evaluate_raw.replace("<OUTPUT>", "").replace("</OUTPUT>", "").strip()
             except ValueError:
                 print("Error (length?)")
                 continue
@@ -69,17 +69,18 @@ async def main(args):
             try:
                 # evaluate = evaluate_raw.replace("```json", "").replace("```", "").strip()
                 # evaluate = evaluate.split("<JSON>")[-1].split("</JSON>")[0].strip()
-                evaluate = json.loads(evaluate_raw)
+                # evaluate = json.loads(evaluate_raw)
+                evaluate = evaluate_raw
                 contains_issue, correct_conclusion = evaluate["contains_issue"], evaluate["correct_conclusion"]
                 issue_results[issue["id"]] = {
                     "rationales": evaluate["rationales"],
                     "contains_issue": contains_issue,
                     "correct_conclusion": correct_conclusion
                 }
-            except json.JSONDecodeError:
-                print("Error decoding JSON from evaluation response. Skipping this issue.")
+            except Exception as e:
+                print(e.__class__, e, "Skipping this issue.")
                 continue
-        
+
         for issue_id, issue_result in issue_results.items():
             # Check if any of the subissue have contains_issue as True and correct_conclusion as False
             subissue_fulfilled = True
