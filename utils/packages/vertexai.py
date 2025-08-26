@@ -3,6 +3,7 @@ from vertexai.preview.generative_models import GenerativeModel
 
 import os
 from dotenv import load_dotenv
+import json
 load_dotenv()
 
 vertexai_generation_config = {
@@ -37,8 +38,10 @@ async def generate(model: GenerativeModel, prompt: str, system_prompt: str, resp
     api_cost += response.usage_metadata.candidates_token_count * 0.6/1000000
     try:
         if response_schema is not None:
-            return response.text.replace("```json", "").replace("```", "").strip()
+            response_text = response.text.split("<OUTPUT>")[-1].split("</OUTPUT>")[0]
+            return json.loads(response_text.replace("```json", "").replace("```", "").strip())
         else:
             return response.text
-    except:
-        return ""
+    except Exception as e:
+        print(e.__class__, e)
+        return None

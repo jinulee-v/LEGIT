@@ -44,4 +44,4 @@ async def generate(model: str, prompt: str, system_prompt: str, response_schema=
         else:
             return response.choices[0].message.content
     except Exception:
-        return ""
+        return None
