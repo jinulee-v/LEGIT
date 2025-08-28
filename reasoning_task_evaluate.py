@@ -55,7 +55,7 @@ async def main(args):
                     claims="\n".join([f"{claim['claimer']}: {claim['content']}" for claim in issue["claim"]]),
                     conclusion=issue["conclusion"],
                 ), system_prompt="", response_schema=Evaluation)
-            except ValueError:
+            except:
                 print("Error (length?)")
                 continue
             # print("----------------------------")

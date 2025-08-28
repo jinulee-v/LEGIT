@@ -1,4 +1,5 @@
 import os
+import json
 from dotenv import load_dotenv
 import httpx
 import asyncio
@@ -12,10 +13,14 @@ async def generate(model: str, prompt: str, system_prompt: str, response_schema=
     payload = {
         "model": model,
         "prompt": user_content,
-        "stream": False,
+        "stream": False
     }
+    if response_schema:
+        payload["format"] = response_schema.model_json_schema()
 
-    with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient() as client:
         responses = await client.post(ollama_url, json=payload, timeout=300)
-
-    return responses.json().get("response", "").strip()
+    if response_schema is None:
+        return responses.json().get("response", "").strip()
+    else:
+        return json.loads(responses.json().get("response", "").strip())
