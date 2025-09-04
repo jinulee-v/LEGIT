@@ -25,7 +25,7 @@ async def main(args):
         tasks.append(generate(model, prompt=datum["question"], system_prompt=SYSTEM_PROMPT))
     
     results = []
-    for task in tqdm(asyncio.as_completed(tasks), total=len(tasks), desc="Generating responses"):
+    for datum, task in zip(reasoning_tasks, await asyncio.gather(*tasks)):
         output = await task
         results.append({
             "doc_id": datum["doc_id"],
