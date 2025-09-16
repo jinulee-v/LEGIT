@@ -53,7 +53,7 @@
             }
         },
         "전주지방법원정읍지원-2013가단5167": {
-            "score": 0.8571428571428571,
+            "score": 1.0,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -83,24 +83,24 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2857142857142857
+                    "score": 0.3333333333333333
                 },
                 "2.1": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2857142857142857
+                    "score": 0.3333333333333333
                 },
                 "2.2": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2857142857142857
+                    "score": 0.3333333333333333
                 }
             }
         },
         "서울중앙지방법원-2019가단5154943": {
-            "score": 0.25,
+            "score": 0.2857,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -112,7 +112,7 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.25
+                    "score": 0.2857142857142857
                 },
                 "2": {
                     "annotator": "박신영",
@@ -153,7 +153,7 @@
             }
         },
         "서울서부지방법원-2015가단244718": {
-            "score": 0.2222222222222222,
+            "score": 0.25,
             "evaluation_result": {
                 "": {
                     "annotator": "여인경",
@@ -207,12 +207,12 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2222222222222222
+                    "score": 0.25
                 }
             }
         },
         "대전지방법원천안지원-2013가단106754": {
-            "score": 1.3,
+            "score": 1.4444,
             "evaluation_result": {
                 "": {
                     "annotator": "이수진",
@@ -230,7 +230,7 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2
+                    "score": 0.2222222222222222
                 },
                 "2.1": {
                     "annotator": "이수진",
@@ -242,19 +242,19 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2
+                    "score": 0.2222222222222222
                 },
                 "2.3": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2
+                    "score": 0.2222222222222222
                 },
                 "3": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2
+                    "score": 0.2222222222222222
                 },
                 "3.1": {
                     "annotator": "이수진",
@@ -266,7 +266,7 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.5
+                    "score": 0.5555555555555556
                 },
                 "3.3": {
                     "annotator": "이수진",
@@ -279,7 +279,7 @@
     },
     "gemini-2.0-flash-001": {
         "서울행정법원-2018구합3660": {
-            "score": 3.75,
+            "score": 5.0,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -291,24 +291,24 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.25
+                    "score": 1.6666666666666667
                 },
                 "1.1": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.25
+                    "score": 1.6666666666666667
                 },
                 "1.1.1": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.25
+                    "score": 1.6666666666666667
                 }
             }
         },
         "서울행정법원-2019구합66415": {
-            "score": 6.25,
+            "score": 6.4286,
             "evaluation_result": {
                 "": {
                     "annotator": "여인경",
@@ -320,13 +320,13 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.625
+                    "score": 0.7142857142857143
                 },
                 "1.1": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.625
+                    "score": 0.7142857142857143
                 },
                 "1.2": {
                     "annotator": "여인경",
@@ -361,7 +361,7 @@
             }
         },
         "서울행정법원-2018구합90381": {
-            "score": 1.0833333333333333,
+            "score": 1.1818,
             "evaluation_result": {
                 "": {
                     "annotator": "여인경",
@@ -373,25 +373,25 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.16666666666666666
+                    "score": 0.18181818181818182
                 },
                 "1.1": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.16666666666666666
+                    "score": 0.18181818181818182
                 },
                 "1.2": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.16666666666666666
+                    "score": 0.18181818181818182
                 },
                 "1.3": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.16666666666666666
+                    "score": 0.18181818181818182
                 },
                 "2": {
                     "annotator": "여인경",
@@ -427,7 +427,7 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "6": {
                     "annotator": "여인경",
@@ -438,7 +438,7 @@
             }
         },
         "창원지방법원통영지원-2013가합2326": {
-            "score": 7.750000000000002,
+            "score": 7.9545,
             "evaluation_result": {
                 "": {
                     "annotator": "여인경",
@@ -456,19 +456,19 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.16666666666666666
+                    "score": 0.18181818181818182
                 },
                 "1.2": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "2": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "2.1": {
                     "annotator": "여인경",
@@ -498,24 +498,24 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "3.1.2": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "3.1.3": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 }
             }
         },
         "춘천지방법원-2017가단53268": {
-            "score": 2.5555555555555554,
+            "score": 2.8333,
             "evaluation_result": {
                 "": {
                     "annotator": "김동주",
@@ -527,13 +527,13 @@
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.5555555555555556
+                    "score": 0.625
                 },
                 "1.1": {
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.5555555555555556
+                    "score": 0.625
                 },
                 "1.2": {
                     "annotator": "김동주",
@@ -557,13 +557,13 @@
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.5555555555555556
+                    "score": 0.625
                 },
                 "1.4": {
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.5555555555555556
+                    "score": 0.625
                 },
                 "1.5": {
                     "annotator": "김동주",
@@ -635,7 +635,7 @@
     },
     "o3": {
         "수원지방법원-2016구합61656": {
-            "score": 1.0,
+            "score": 1.3333,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -647,13 +647,13 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.5
+                    "score": 0.6666666666666666
                 },
                 "1.1": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.5
+                    "score": 0.6666666666666666
                 },
                 "1.2": {
                     "annotator": "박신영",
@@ -664,7 +664,7 @@
             }
         },
         "서울행정법원-2019구단8672": {
-            "score": 8.333333333333332,
+            "score": 10.0,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -676,18 +676,18 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.6666666666666665
+                    "score": 2.5
                 },
                 "1.1": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.6666666666666665
+                    "score": 2.5
                 }
             }
         },
         "대구지방법원경주지원-2014가단12426": {
-            "score": 1.5,
+            "score": 2.0,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -699,24 +699,24 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.5
+                    "score": 0.6666666666666666
                 },
                 "1.1": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.5
+                    "score": 0.6666666666666666
                 },
                 "1.2": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.5
+                    "score": 0.6666666666666666
                 }
             }
         },
         "수원지방법원평택지원-2017가합9673": {
-            "score": 0.8333333333333333,
+            "score": 1.0,
             "evaluation_result": {
                 "": {
                     "annotator": "여인경",
@@ -734,7 +734,7 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.8333333333333333
+                    "score": 1.0
                 },
                 "2.1": {
                     "annotator": "여인경",
@@ -757,7 +757,7 @@
             }
         },
         "의정부지방법원-2018구합10533": {
-            "score": 8.0,
+            "score": 8.75,
             "evaluation_result": {
                 "": {
                     "annotator": "여인경",
@@ -769,19 +769,19 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.0
+                    "score": 1.25
                 },
                 "1.1": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.0
+                    "score": 1.25
                 },
                 "1.1.1": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.0
+                    "score": 1.25
                 },
                 "1.1.2": {
                     "annotator": "여인경",
@@ -823,7 +823,7 @@
             }
         },
         "대구지방법원김천지원-2021가단40163": {
-            "score": 6.25,
+            "score": 6.4286,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -835,13 +835,13 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.625
+                    "score": 0.7142857142857143
                 },
                 "1.1": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.625
+                    "score": 0.7142857142857143
                 },
                 "1.2": {
                     "annotator": "박신영",
@@ -876,7 +876,7 @@
             }
         },
         "서울행정법원-2019구합53631": {
-            "score": 5.833333333333333,
+            "score": 6.0,
             "evaluation_result": {
                 "": {
                     "annotator": "여인경",
@@ -888,7 +888,7 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.8333333333333333
+                    "score": 1.0
                 },
                 "1.1": {
                     "annotator": "여인경",
@@ -917,7 +917,7 @@
             }
         },
         "대구지방법원상주지원-2015가단2262": {
-            "score": 6.555555555555555,
+            "score": 6.75,
             "evaluation_result": {
                 "": {
                     "annotator": "김동주",
@@ -929,19 +929,19 @@
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.5555555555555556
+                    "score": 0.625
                 },
                 "1.1": {
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.5555555555555556
+                    "score": 0.625
                 },
                 "1.2": {
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2222222222222222
+                    "score": 0.25
                 },
                 "1.2.1": {
                     "annotator": "김동주",
@@ -971,12 +971,12 @@
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2222222222222222
+                    "score": 0.25
                 }
             }
         },
         "수원지방법원안산지원-2020가합12346": {
-            "score": 8.083333333333336,
+            "score": 8.3636,
             "evaluation_result": {
                 "": {
                     "annotator": "이수진",
@@ -988,25 +988,25 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.16666666666666666
+                    "score": 0.18181818181818182
                 },
                 "1.1": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "1.2": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "1.3": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "1.4": {
                     "annotator": "이수진",
@@ -1024,19 +1024,19 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "1.5": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "1.5.1": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "1.5.2": {
                     "annotator": "이수진",
@@ -1048,7 +1048,7 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 }
             }
         }
@@ -1084,7 +1084,7 @@
             }
         },
         "서울행정법원-2014구합19889": {
-            "score": 7.5,
+            "score": 10.0,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -1096,12 +1096,12 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 2.5
+                    "score": 5.0
                 }
             }
         },
         "대구지방법원영덕지원-2020가합41": {
-            "score": 1.25,
+            "score": 1.6667,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -1119,7 +1119,7 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.25
+                    "score": 1.6666666666666667
                 },
                 "1.2": {
                     "annotator": "박신영",
@@ -1130,7 +1130,7 @@
             }
         },
         "광주지방법원-2014구합229": {
-            "score": 6.0,
+            "score": 6.1667,
             "evaluation_result": {
                 "": {
                     "annotator": "여인경",
@@ -1142,7 +1142,7 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2857142857142857
+                    "score": 0.3333333333333333
                 },
                 "1.1": {
                     "annotator": "여인경",
@@ -1166,7 +1166,7 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.7142857142857142
+                    "score": 0.8333333333333334
                 },
                 "2.1": {
                     "annotator": "여인경",
@@ -1177,7 +1177,7 @@
             }
         },
         "서울행정법원-2017구합73471": {
-            "score": 1.2,
+            "score": 1.3,
             "evaluation_result": {
                 "": {
                     "annotator": "김동주",
@@ -1189,19 +1189,19 @@
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.5
+                    "score": 0.5555555555555556
                 },
                 "1.1": {
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2
+                    "score": 0.2222222222222222
                 },
                 "1.1.1": {
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2
+                    "score": 0.2222222222222222
                 },
                 "1.1.2": {
                     "annotator": "김동주",
@@ -1303,7 +1303,7 @@
     },
     "exaone3.5:32b": {
         "서울중앙지방법원-2022가단1600": {
-            "score": 1.3333333333333333,
+            "score": 2.0,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -1315,18 +1315,18 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.6666666666666666
+                    "score": 1.0
                 },
                 "1.1": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.6666666666666666
+                    "score": 1.0
                 }
             }
         },
         "서울중앙지방법원-2018가합577534": {
-            "score": 8.75,
+            "score": 10.0,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -1338,24 +1338,24 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.25
+                    "score": 1.6666666666666667
                 },
                 "1.1": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.25
+                    "score": 1.6666666666666667
                 },
                 "1.2": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.25
+                    "score": 1.6666666666666667
                 }
             }
         },
         "서울행정법원-2017구단74262": {
-            "score": 6.25,
+            "score": 6.6667,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -1367,7 +1367,7 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.25
+                    "score": 1.6666666666666667
                 },
                 "1.1": {
                     "annotator": "박신영",
@@ -1384,7 +1384,7 @@
             }
         },
         "울산지방법원-2017구합6833": {
-            "score": 0.4,
+            "score": 0.5,
             "evaluation_result": {
                 "": {
                     "annotator": "여인경",
@@ -1408,7 +1408,7 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.4
+                    "score": 0.5
                 },
                 "1.3": {
                     "annotator": "여인경",
@@ -1419,7 +1419,7 @@
             }
         },
         "서울중앙지방법원-2017가합570840": {
-            "score": 1.3333333333333333,
+            "score": 1.4545,
             "evaluation_result": {
                 "": {
                     "annotator": "이수진",
@@ -1449,7 +1449,7 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.16666666666666666
+                    "score": 0.18181818181818182
                 },
                 "2.1": {
                     "annotator": "이수진",
@@ -1461,13 +1461,13 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "2.2.1": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.41666666666666663
+                    "score": 0.45454545454545453
                 },
                 "2.2.2": {
                     "annotator": "이수진",
@@ -1479,13 +1479,13 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.16666666666666666
+                    "score": 0.18181818181818182
                 },
                 "2.3.1": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.16666666666666666
+                    "score": 0.18181818181818182
                 },
                 "2.3.2": {
                     "annotator": "이수진",
@@ -1498,7 +1498,7 @@
     },
     "gemma-3-27b-it": {
         "서울행정법원-2013구합51848": {
-            "score": 6.25,
+            "score": 6.6667,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -1510,7 +1510,7 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.25
+                    "score": 1.6666666666666667
                 },
                 "1.1": {
                     "annotator": "박신영",
@@ -1527,7 +1527,7 @@
             }
         },
         "인천지방법원-2019구합1122": {
-            "score": 1.25,
+            "score": 1.4286,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -1539,25 +1539,25 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.25
+                    "score": 0.2857142857142857
                 },
                 "1.1": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.25
+                    "score": 0.2857142857142857
                 },
                 "1.2": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.25
+                    "score": 0.2857142857142857
                 },
                 "1.2.1": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.25
+                    "score": 0.2857142857142857
                 },
                 "1.2.2": {
                     "annotator": "박신영",
@@ -1569,7 +1569,7 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.25
+                    "score": 0.2857142857142857
                 },
                 "1.4": {
                     "annotator": "박신영",
@@ -1580,7 +1580,7 @@
             }
         },
         "창원지방법원통영지원-2016가합10748": {
-            "score": 6.0,
+            "score": 6.25,
             "evaluation_result": {
                 "": {
                     "annotator": "여인경",
@@ -1604,7 +1604,7 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.0
+                    "score": 1.25
                 },
                 "1.3": {
                     "annotator": "여인경",
@@ -1615,7 +1615,7 @@
             }
         },
         "제주지방법원-2018가단274": {
-            "score": 1.0,
+            "score": 1.1111,
             "evaluation_result": {
                 "": {
                     "annotator": "김동주",
@@ -1627,13 +1627,13 @@
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2
+                    "score": 0.2222222222222222
                 },
                 "1.1": {
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2
+                    "score": 0.2222222222222222
                 },
                 "1.2": {
                     "annotator": "김동주",
@@ -1657,19 +1657,19 @@
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2
+                    "score": 0.2222222222222222
                 },
                 "2.1": {
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2
+                    "score": 0.2222222222222222
                 },
                 "2.2": {
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2
+                    "score": 0.2222222222222222
                 },
                 "3": {
                     "annotator": "김동주",
@@ -1680,7 +1680,7 @@
             }
         },
         "대구지방법원김천지원-2013가단9402": {
-            "score": 0.5555555555555556,
+            "score": 0.625,
             "evaluation_result": {
                 "": {
                     "annotator": "김동주",
@@ -1716,7 +1716,7 @@
                     "annotator": "김동주",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.5555555555555556
+                    "score": 0.625
                 },
                 "3": {
                     "annotator": "김동주",
@@ -1739,7 +1739,7 @@
             }
         },
         "서울남부지방법원-2020가단273896": {
-            "score": 1.4444444444444446,
+            "score": 1.625,
             "evaluation_result": {
                 "": {
                     "annotator": "이수진",
@@ -1757,13 +1757,13 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2222222222222222
+                    "score": 0.25
                 },
                 "2.1": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2222222222222222
+                    "score": 0.25
                 },
                 "2.1.1": {
                     "annotator": "이수진",
@@ -1775,13 +1775,13 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.5555555555555556
+                    "score": 0.625
                 },
                 "2.2": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2222222222222222
+                    "score": 0.25
                 },
                 "2.2.1": {
                     "annotator": "이수진",
@@ -1793,14 +1793,14 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.2222222222222222
+                    "score": 0.25
                 }
             }
         }
     },
     "gemini-2.5-pro": {
         "부산지방법원동부지원-2021가단218085": {
-            "score": 8.4,
+            "score": 9.25,
             "evaluation_result": {
                 "": {
                     "annotator": "박신영",
@@ -1812,13 +1812,48 @@
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.0
+                    "score": 1.25
                 },
                 "1.1": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.0
+                    "score": 1.25
+                },
+                "1.2": {
+                    "annotator": "박신영",
+                    "contains_issue": 1,
+                    "correct_conclusion": 0,
+                    "score": 0.5
+                },
+                "1.3": {
+                    "annotator": "박신영",
+                    "contains_issue": 1,
+                    "correct_conclusion": 1,
+                    "score": 1.25
+                }
+            }
+        },
+        "수원지방법원여주지원-2015가합10492": {
+            "score": 1.6,
+            "evaluation_result": {
+                "": {
+                    "annotator": "박신영",
+                    "contains_issue": 1,
+                    "correct_conclusion": 0,
+                    "score": 0
+                },
+                "1": {
+                    "annotator": "박신영",
+                    "contains_issue": 1,
+                    "correct_conclusion": 0,
+                    "score": 0.4
+                },
+                "1.1": {
+                    "annotator": "박신영",
+                    "contains_issue": 0,
+                    "correct_conclusion": 0,
+                    "score": 0
                 },
                 "1.2": {
                     "annotator": "박신영",
@@ -1829,54 +1864,19 @@
                 "1.3": {
                     "annotator": "박신영",
                     "contains_issue": 1,
-                    "correct_conclusion": 1,
-                    "score": 1.0
-                }
-            }
-        },
-        "수원지방법원여주지원-2015가합10492": {
-            "score": 1.3333333333333333,
-            "evaluation_result": {
-                "": {
-                    "annotator": "박신영",
-                    "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0
-                },
-                "1": {
-                    "annotator": "박신영",
-                    "contains_issue": 1,
-                    "correct_conclusion": 0,
-                    "score": 0.3333333333333333
-                },
-                "1.1": {
-                    "annotator": "박신영",
-                    "contains_issue": 0,
-                    "correct_conclusion": 0,
-                    "score": 0
-                },
-                "1.2": {
-                    "annotator": "박신영",
-                    "contains_issue": 1,
-                    "correct_conclusion": 0,
-                    "score": 0.3333333333333333
-                },
-                "1.3": {
-                    "annotator": "박신영",
-                    "contains_issue": 1,
-                    "correct_conclusion": 0,
-                    "score": 0.3333333333333333
+                    "score": 0.4
                 },
                 "1.4": {
                     "annotator": "박신영",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.3333333333333333
+                    "score": 0.4
                 }
             }
         },
         "서울서부지방법원-2016가단274": {
-            "score": 3.6,
+            "score": 4.35,
             "evaluation_result": {
                 "": {
                     "annotator": "여인경",
@@ -1888,13 +1888,13 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.0
+                    "score": 1.25
                 },
                 "1.1": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.0
+                    "score": 1.25
                 },
                 "1.1.1": {
                     "annotator": "여인경",
@@ -1906,12 +1906,12 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 1.0
+                    "score": 1.25
                 }
             }
         },
         "울산지방법원-2020가합10790": {
-            "score": 8.571428571428571,
+            "score": 9.1667,
             "evaluation_result": {
                 "": {
                     "annotator": "여인경",
@@ -1923,7 +1923,7 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.7142857142857142
+                    "score": 0.8333333333333334
                 },
                 "1.1": {
                     "annotator": "여인경",
@@ -1935,30 +1935,30 @@
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.7142857142857142
+                    "score": 0.8333333333333334
                 },
                 "1.2.1": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.7142857142857142
+                    "score": 0.8333333333333334
                 },
                 "1.2.2": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.7142857142857142
+                    "score": 0.8333333333333334
                 },
                 "1.2.3": {
                     "annotator": "여인경",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.7142857142857142
+                    "score": 0.8333333333333334
                 }
             }
         },
         "부산지방법원-2014가합48203": {
-            "score": 2.1818181818181817,
+            "score": 2.4,
             "evaluation_result": {
                 "": {
                     "annotator": "이수진",
@@ -1970,13 +1970,13 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.18181818181818182
+                    "score": 0.2
                 },
                 "2.1": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.45454545454545453
+                    "score": 0.5
                 },
                 "2.1.1": {
                     "annotator": "이수진",
@@ -1994,19 +1994,19 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.45454545454545453
+                    "score": 0.5
                 },
                 "2.3": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.45454545454545453
+                    "score": 0.5
                 },
                 "3": {
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 0,
-                    "score": 0.18181818181818182
+                    "score": 0.2
                 },
                 "3.1": {
                     "annotator": "이수진",
@@ -2024,7 +2024,7 @@
                     "annotator": "이수진",
                     "contains_issue": 1,
                     "correct_conclusion": 1,
-                    "score": 0.45454545454545453
+                    "score": 0.5
                 }
             }
         }
