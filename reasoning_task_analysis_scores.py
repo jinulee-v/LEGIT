@@ -60,7 +60,7 @@ def evaluate(eval_file):
 def main():
     results = {}
     for file in os.listdir("results"):
-        if "evaluator_gemini-2.5-flash" in file:
+        if "_evaluator_gemini-2.0-flash-001.jsonl" in file:
             # skip gemma-3-27b-it
             eval_file = os.path.join("results", file)
             generator_model = "_evaluator_".join(file.split("_evaluator_")[:-1]).split("reasoning_tasks_")[1]
@@ -77,33 +77,25 @@ def main():
         print(f"  {model}: {stats['score/total']:.2f}")
     print("==================")
     
-    # gemma-3 scores/root correct by difficulty level
-    print("gemma-3-4b-it")
-    gemma_results = results.get("gemma-3-4b-it", {})
-    print(f"  score/easy: {gemma_results['score/easy']:.2f}, score/medium: {gemma_results['score/medium']:.2f}, score/hard: {gemma_results['score/hard']:.2f}")
-    print(f"  root_accuracy/easy: {gemma_results['root_accuracy/easy']:.2f}, root_accuracy/medium: {gemma_results['root_accuracy/medium']:.2f}, root_accuracy/hard: {gemma_results['root_accuracy/hard']:.2f}")
-
-    print("gemma-3-12b-it")
-    gemma_results = results.get("gemma-3-12b-it", {})
-    print(f"  score/easy: {gemma_results['score/easy']:.2f}, score/medium: {gemma_results['score/medium']:.2f}, score/hard: {gemma_results['score/hard']:.2f}")
-    print(f"  root_accuracy/easy: {gemma_results['root_accuracy/easy']:.2f}, root_accuracy/medium: {gemma_results['root_accuracy/medium']:.2f}, root_accuracy/hard: {gemma_results['root_accuracy/hard']:.2f}")
-
-    print("gemma-3-27b-it")
-    gemma_results = results.get("gemma-3-27b-it", {})
-    print(f"  score/easy: {gemma_results['score/easy']:.2f}, score/medium: {gemma_results['score/medium']:.2f}, score/hard: {gemma_results['score/hard']:.2f}")
-    print(f"  root_accuracy/easy: {gemma_results['root_accuracy/easy']:.2f}, root_accuracy/medium: {gemma_results['root_accuracy/medium']:.2f}, root_accuracy/hard: {gemma_results['root_accuracy/hard']:.2f}")
-
-    
-    print("gemma3-4b_evaluator_gemma3-27b_fullreward")
-    gemma_results = results.get("gemma3-4b_evaluator_gemma3-27b_fullreward", {})
-    print(f"  score/easy: {gemma_results['score/easy']:.2f}, score/medium: {gemma_results['score/medium']:.2f}, score/hard: {gemma_results['score/hard']:.2f}")
-    print(f"  root_accuracy/easy: {gemma_results['root_accuracy/easy']:.2f}, root_accuracy/medium: {gemma_results['root_accuracy/medium']:.2f}, root_accuracy/hard: {gemma_results['root_accuracy/hard']:.2f}")
-    
-    print("gemma3-4b_evaluator_gemma3-27b_rootreward")
-    gemma_results = results.get("gemma3-4b_evaluator_gemma3-27b_rootreward", {})
-    print(f"  score/easy: {gemma_results['score/easy']:.2f}, score/medium: {gemma_results['score/medium']:.2f}, score/hard: {gemma_results['score/hard']:.2f}")
-    print(f"  root_accuracy/easy: {gemma_results['root_accuracy/easy']:.2f}, root_accuracy/medium: {gemma_results['root_accuracy/medium']:.2f}, root_accuracy/hard: {gemma_results['root_accuracy/hard']:.2f}")
-
+    # Print stats for certain runs
+    GENERATORS = [
+        "gemma-3-4b-it",
+        "gemma-3-12b-it",
+        "gemma-3-27b-it",
+        "gemma3-4b_evaluator_gemma3-27b_fullreward",
+        "gemma3-4b_evaluator_gemma3-27b_rootreward",
+        "gemini-2.5-flash-001",
+        "withrelevantlaw_gemini-2.5-flash",
+        "gpt-4.1",
+        "withrelevantlaw_gpt-4.1",
+    ]
+    for generator in GENERATORS:
+        print(generator)
+        gemma_results = results.get(generator, {})
+        print(f"  score/total: {gemma_results['score/total']:.2f}, root_accuracy/total: {gemma_results['root_accuracy/total']:.2f}")
+        print(f"  score/easy: {gemma_results['score/easy']:.2f}, score/medium: {gemma_results['score/medium']:.2f}, score/hard: {gemma_results['score/hard']:.2f}")
+        print(f"  root_accuracy/easy: {gemma_results['root_accuracy/easy']:.2f}, root_accuracy/medium: {gemma_results['root_accuracy/medium']:.2f}, root_accuracy/hard: {gemma_results['root_accuracy/hard']:.2f}")
+        print("==================")
 
 if __name__ == "__main__":
     main()

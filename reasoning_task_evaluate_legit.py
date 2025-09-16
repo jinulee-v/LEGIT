@@ -70,21 +70,13 @@ async def main(args):
                 continue
 
         for issue_id, issue_result in issue_results.items():
-            # Check if any of the subissue have contains_issue as True and correct_conclusion as False
-            subissue_fulfilled = True
-            for sub_issue_id, sub_issue_result in issue_results.items():
-                if sub_issue_id.startswith(issue_id) and issue_id != sub_issue_id:
-                    if sub_issue_result["contains_issue"] and not sub_issue_result["correct_conclusion"]:
-                        subissue_fulfilled = False
-                        issue_result["score"] = 0
-                        break
             issue_score = 0
             if issue_id == "":
                 # if conclusion is correct, score 5
-                if issue_result["contains_issue"] and issue_result["correct_conclusion"] and subissue_fulfilled:
+                if issue_result["correct_conclusion"]:
                     issue_score += 5
             else:
-                if issue_result["contains_issue"] and subissue_fulfilled:
+                if issue_result["contains_issue"]:
                     issue_score += 2 / (len(issue_results) - 1)
                     if issue_result["correct_conclusion"]:
                         issue_score += 3 / (len(issue_results) - 1)
