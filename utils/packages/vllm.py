@@ -40,4 +40,7 @@ async def generate(model: AsyncLLM, prompt: str, system_prompt: str, response_sc
     output = None
     async for request_output in results_generator:
         output = request_output
-    return output.outputs[0].text.strip()
+    if response_schema is not None:
+        return json.loads(output.outputs[0].text.strip())
+    else:
+        return output.outputs[0].text.strip()

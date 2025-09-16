@@ -28,7 +28,7 @@ def get_model(package: str, model_name: str) -> Tuple[Any, Callable]:
         from vllm.engine.arg_utils import AsyncEngineArgs
         from utils.packages.vllm import generate
         
-        args = AsyncEngineArgs(model=model_name, tensor_parallel_size=2, gpu_memory_utilization=0.5)
+        args = AsyncEngineArgs(model=model_name, tensor_parallel_size=2, gpu_memory_utilization=0.8, trust_remote_code=True)
         llm = AsyncLLM.from_engine_args(args)
         return llm, generate
 
