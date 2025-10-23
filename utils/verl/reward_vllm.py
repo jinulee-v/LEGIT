@@ -8,7 +8,7 @@ from openai import AsyncOpenAI
 load_dotenv()
 
 default_generation_config = {
-    "temperature": 1,
+    "temperature": 0,
     "top_p": 0.95,
 }
 VLLM_URL = os.environ.get("VLLM_URL", "http://localhost:8000/v1")
