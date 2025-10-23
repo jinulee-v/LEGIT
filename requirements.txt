@@ -1,0 +1,24 @@
+# Python utils
+pydantic==2.11.7
+python-dotenv==1.1.1
+tqdm==4.67.1
+httpx==0.28.1
+
+# LLM inference
+vertexai==1.71.1
+openai==1.102.0
+vllm==0.10.1.1
+
+# RAG
+rank_bm25==0.2.2
+kiwipiepy==0.21.0
+kiwipiepy_model==0.21.0
+
+# RL
+verl==0.5.0
+qwen_vl_utils==0.0.11
+flash_attn==2.8.0.post2
+
+# Utils
+matplotlib==3.10.6
+datasketch==1.6.5
