@@ -45,8 +45,8 @@ async def main(args):
         tasks.append(generate(model, prompt=prompt, system_prompt=SYSTEM_PROMPT))
 
     results = []
-    for datum, task in zip(reasoning_tasks, tasks):
-        output = await task
+    for datum, output in zip(reasoning_tasks, await asyncio.gather(*tasks)):
+        # output = await task
         results.append({
             "doc_id": datum["doc_id"],
             "response": output
