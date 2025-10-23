@@ -80,16 +80,42 @@ def main():
     # Print stats for certain runs
     GENERATORS = [
         "gemma-3-4b-it",
+        "gemma3-4b_evaluator_gemma3-27b_fullreward",
+        "gemma3-4b_evaluator_gemma3-27b_fullreward_new",
+        "gemma3-4b_evaluator_gemma3-27b_fullreward_new_largerl",
+        "gemma3-4b_evaluator_gemma3-27b_fullreward_new_largerl_2",
+        "gemma3-4b_evaluator_gemma3-27b_fullreward_new_largelr_fixtemp",
+        "gemma3-4b_evaluator_gemma3-27b_rootreward",
         "gemma-3-12b-it",
         "gemma-3-27b-it",
-        "gemma3-4b_evaluator_gemma3-27b_fullreward",
-        "gemma3-4b_evaluator_gemma3-27b_rootreward",
+        "###",
         "gemini-2.5-flash-001",
-        "withrelevantlaw_gemini-2.5-flash",
+        "rag_groundtruth_gemini-2.5-flash",
+        "rag_bm25_gemini-2.5-flash",
+        "rag_contriever_gemini-2.5-flash",
+        "rag_contriever_finetuned_gemini-2.5-flash",
+        "###",
         "gpt-4.1",
-        "withrelevantlaw_gpt-4.1",
+        "rag_groundtruth_gpt-4.1",
+        "rag_bm25_gpt-4.1",
+        "rag_contriever_gpt-4.1",
+        "rag_contriever_finetuned_gpt-4.1",
+        "###",
+        "gemma-3-4b-it",
+        "rag_groundtruth_gemma-3-4b-it",
+        "rag_bm25_gemma-3-4b-it",
+        "rag_contriever_gemma-3-4b-it",
+        "rag_contriever_finetuned_gemma-3-4b-it",
+        # "###",
+        # "gemma-3-12b-it",
+        # "rag_groundtruth_gemma-3-12b-it",
+        # "rag_bm25_gemma-3-12b-it",
+        # "rag_contriever_gemma-3-12b-it",
     ]
     for generator in GENERATORS:
+        if "###" in generator:
+            print("###############################")
+            continue
         print(generator)
         gemma_results = results.get(generator, {})
         print(f"  score/total: {gemma_results['score/total']:.2f}, root_accuracy/total: {gemma_results['root_accuracy/total']:.2f}")
