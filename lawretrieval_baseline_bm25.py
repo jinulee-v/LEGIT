@@ -25,7 +25,8 @@ def main():
 
     # Load the test queries
     test_queries = []
-    with open('data/lawretrieval_test_groundtruth.jsonl', 'r', encoding='utf-8') as f:
+    with open('data/lawretrieval_train_groundtruth.jsonl', 'r', encoding='utf-8') as f:
+    # with open('data/lawretrieval_test_groundtruth.jsonl', 'r', encoding='utf-8') as f:
         for line in f:
             item = json.loads(line)
             test_queries.append(item)
@@ -43,7 +44,8 @@ def main():
         })
         print(results[-1])
     
-    with open("data/lawretrieval_test_bm25.jsonl", "w", encoding="utf-8") as f:
+    with open("data/lawretrieval_train_bm25.jsonl", "w", encoding="utf-8") as f:
+    # with open("data/lawretrieval_test_bm25.jsonl", "w", encoding="utf-8") as f:
         for result in results:
             f.write(json.dumps(result, ensure_ascii=False) + "\n")
 
