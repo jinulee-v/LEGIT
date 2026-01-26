@@ -8,6 +8,8 @@ Jinu Lee, Kyoung-Woon On, Simeng Han, Arman Cohan, Julia Hockenmaier
 
 ![Overview of LEGIT](doc/LEGIT_overview.png)
 
+Dataset link: [Huggingface](https://huggingface.co/datasets/jinulee-v/legit_ko_verl)
+
 # Installation
 
 Install python requirements by:
